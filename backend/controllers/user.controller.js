@@ -8,7 +8,7 @@ const createuser = async (body) => {
 const login = async (body) => {
     const data = await user.findOne({ email: body.email });
     if (data && data.password !== body.password) {
-      return "Incorrect Password";
+      throw new Error("Incorrect Password");
     } else {
     return data;
     }
